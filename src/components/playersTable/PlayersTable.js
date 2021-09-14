@@ -30,26 +30,25 @@ export const PlayersTable = (props) => {
             {popup.open && <Popup data={popup.data} setPopup={setPopup}/>}
             <div className={classes.table}>
                 <div className={classes.header}>
-                    <div>
-                        <form onReset={(e) => setFilter({searchField: '', isOnline: false, excludedPlayers: []})}
-                              onInput={(e) =>
-                                  setFilter({
-                                      ...filter,
-                                      [e.target.name]: e.target.type === 'checkbox' ? e.target.checked : e.target.value,
-                                  })
-                              }>
-                            <label>
-                                Имя
-                                <input name={'searchField'} type={'text'}/>
-                            </label>
-                            <label>
-                                Онлайн
-                                <input name={'isOnline'} type={'checkbox'}/>
-                            </label>
-                            <button name={'reset'} type={'reset'}>Показать всех</button>
-                        </form>
-                    </div>
-
+                    <form onReset={(e) => setFilter({searchField: '', isOnline: false, excludedPlayers: []})}
+                          onInput={(e) =>
+                              setFilter({
+                                  ...filter,
+                                  [e.target.name]: e.target.type === 'checkbox' ? e.target.checked : e.target.value,
+                              })
+                          }>
+                        <label>
+                            Имя
+                            <input name={'searchField'} type={'text'}/>
+                        </label>
+                        <label className={[classes.checkbox__label, filter.isOnline && classes.active].join(' ')}>
+                            Онлайн
+                            <input name={'isOnline'} type={'checkbox'}/>
+                        </label>
+                        <button name={'reset'} type={'reset'}>Показать всех</button>
+                    </form>
+                </div>
+                <div className={classes.table__main}>
                     <TableHead setSortType={setSortType}/>
 
                     <Scrollbar style={{height: 520}}>
