@@ -41,7 +41,7 @@ export const PlayersTable = (props) => {
                             Имя
                             <input name={'searchField'} type={'text'}/>
                         </label>
-                        <label className={[classes.checkbox__label, filter.isOnline && classes.active].join(' ')}>
+                        <label className={[classes.checkbox__label, filter.isOnline ? classes.active : ''].join(' ')}>
                             Онлайн
                             <input name={'isOnline'} type={'checkbox'}/>
                         </label>
