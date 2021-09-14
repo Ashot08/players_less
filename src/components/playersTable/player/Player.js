@@ -1,4 +1,4 @@
-import classes from "./Player.module.css";
+import classes from "./Player.module.less";
 import {PlayerOptions} from "../playerOptions/PlayerOptions";
 import {useRef, useState} from "react";
 import {useOnClickOutside} from "../PlayersTable";

@@ -1,4 +1,4 @@
-import classes from "./Popup.module.css";
+import classes from "./Popup.module.less";
 import {useRef} from "react";
 import {useOnClickOutside} from "../PlayersTable";
 

@@ -1,4 +1,4 @@
-import classes from "./PlayersTable.module.css";
+import classes from "./PlayersTable.module.less";
 import {Scrollbar} from "react-scrollbars-custom";
 import {Player} from "./player/Player";
 import {getPlayers} from "../../api/api";

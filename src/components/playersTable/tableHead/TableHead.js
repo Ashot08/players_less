@@ -1,4 +1,4 @@
-import classes from "../PlayersTable.module.css";
+import classes from "../PlayersTable.module.less";
 import {SortingButton} from "../sortingButton/sortingButton";
 
 export const TableHead = (props) => {

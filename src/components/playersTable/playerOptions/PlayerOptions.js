@@ -1,4 +1,4 @@
-import classes from "./PlayerOptions.module.css";
+import classes from "./PlayerOptions.module.less";
 export const PlayerOptions = (props) => {
     return (
         <div className={classes.player__options}>
