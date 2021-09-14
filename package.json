@@ -14,9 +14,10 @@
     "react-scrollbars-custom": "^4.0.27",
     "web-vitals": "^1.1.2"
   },
+
   "scripts": {
     "start": "craco start",
-    "build": "craco build && mv build webapp",
+    "build": "craco build && mv build ./release || move build ./release",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
