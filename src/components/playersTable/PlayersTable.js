@@ -22,9 +22,8 @@ export const PlayersTable = (props) => {
             return compare(a[sortType.sortBy], b[sortType.sortBy], sortType.order);
         });
         setPlayers(filterPlayers([...sortedPlayers], filter));
-
     }, [sortType, filter]);
-
+    const size = useWindowSize();
     return (
         <>
             {popup.open && <Popup data={popup.data} setPopup={setPopup}/>}
@@ -58,7 +57,7 @@ export const PlayersTable = (props) => {
                 </div>
                 <div className={classes.table__main}>
                     <TableHead currentSort={sortType} setSortType={setSortType}/>
-                    <Scrollbar style={{height: 520}}>
+                    <Scrollbar style={{height: size.height - 64 - 99}}>
                         <div className={classes.table__body}>
                             {players.length ? players.map(p =>
                                 <Player
@@ -75,10 +74,8 @@ export const PlayersTable = (props) => {
                 </div>
             </div>
         </>
-
     )
 }
-
 
 function compare(a, b, order) {
     if (typeof a === 'string') {
@@ -123,4 +120,22 @@ export function useOnClickOutside(ref, handler) {
         },
         [ref, handler]
     );
+}
+function useWindowSize() {
+    const [windowSize, setWindowSize] = useState({
+        width: 0,
+        height: 0,
+    });
+    useEffect(() => {
+        function handleResize() {
+            setWindowSize({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
+        }
+        window.addEventListener("resize", handleResize);
+        handleResize();
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+    return windowSize;
 }

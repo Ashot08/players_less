@@ -9,7 +9,9 @@
     cursor: pointer;
     display: -ms-grid;
     -ms-grid-columns: 1fr 2fr 2fr 1fr;
-
+    &_item{
+        overflow: hidden;
+    }
     &_item:nth-child(1){
         -ms-grid-column: 1;
         -ms-grid-row: 1;
@@ -25,6 +27,18 @@
     &_item:nth-child(4){
         -ms-grid-column: 4;
         -ms-grid-row: 1;
+    }
+}
+.player:last-child{
+    div:last-child{
+        bottom: 0;
+        top: inherit;
+    }
+}
+.player:first-child{
+    div:last-child{
+        bottom: inherit;
+        top: 0;
     }
 }
 @media screen and (min-width:0\0) {
