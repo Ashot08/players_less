@@ -57,8 +57,7 @@ export const PlayersTable = (props) => {
                     </form>
                 </div>
                 <div className={classes.table__main}>
-                    <TableHead setSortType={setSortType}/>
-
+                    <TableHead currentSort={sortType} setSortType={setSortType}/>
                     <Scrollbar style={{height: 520}}>
                         <div className={classes.table__body}>
                             {players.length ? players.map(p =>

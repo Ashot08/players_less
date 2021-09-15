@@ -59,9 +59,13 @@
         -ms-grid-rows: 1fr;
         background-color: @dark;
         &_item{
+            display: flex;
+            align-items: center;
+            padding: 10px 5px;
+        }
+        &_item:nth-child(1){
             -ms-grid-column: 1;
             -ms-grid-row: 1;
-            padding: 10px 5px;
         }
         &_item:nth-child(2){
             -ms-grid-column: 2;
