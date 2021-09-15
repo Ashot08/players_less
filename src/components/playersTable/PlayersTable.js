@@ -34,16 +34,24 @@ export const PlayersTable = (props) => {
                           onInput={(e) =>
                               setFilter({
                                   ...filter,
-                                  [e.target.name]: e.target.type === 'checkbox' ? e.target.checked : e.target.value,
+                                  [e.target.name]: e.target.value,
                               })
-                          }>
+                          }
+                          onClick={(e) => {if (e.target.name === 'isOnline') {
+                                  setFilter({
+                                      ...filter,
+                                      [e.target.name]: !filter.isOnline
+                                  });
+                              }}
+                          }
+                    >
                         <label>
                             Имя
                             <input name={'searchField'} type={'text'}/>
                         </label>
                         <label className={[classes.checkbox__label, filter.isOnline ? classes.active : ''].join(' ')}>
                             Онлайн
-                            <input name={'isOnline'} type={'checkbox'}/>
+                            <input name={'isOnline'} type={'text'}/>
                         </label>
                         <button name={'reset'} type={'reset'}>Показать всех</button>
                     </form>

@@ -7,4 +7,29 @@
     padding: 10px;
     position: relative;
     cursor: pointer;
+    display: -ms-grid;
+    -ms-grid-columns: 1fr 2fr 2fr 1fr;
+
+    &_item:nth-child(1){
+        -ms-grid-column: 1;
+        -ms-grid-row: 1;
+    }
+    &_item:nth-child(2){
+        -ms-grid-column: 2;
+        -ms-grid-row: 1;
+    }
+    &_item:nth-child(3){
+        -ms-grid-column: 3;
+        -ms-grid-row: 1;
+    }
+    &_item:nth-child(4){
+        -ms-grid-column: 4;
+        -ms-grid-row: 1;
+    }
 }
+@media screen and (min-width:0\0) {
+    .player{
+        margin-bottom: 5px;
+    }
+}
+
