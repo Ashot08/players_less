@@ -24,6 +24,7 @@ export const PlayersTable = (props) => {
         setPlayers(filterPlayers([...sortedPlayers], filter));
     }, [sortType, filter]);
     const size = useWindowSize();
+
     return (
         <>
             {popup.open && <Popup data={popup.data} setPopup={setPopup}/>}
@@ -36,12 +37,14 @@ export const PlayersTable = (props) => {
                                   [e.target.name]: e.target.value,
                               })
                           }
-                          onClick={(e) => {if (e.target.name === 'isOnline') {
+                          onClick={(e) => {
+                              if (e.target.name === 'isOnline') {
                                   setFilter({
                                       ...filter,
                                       [e.target.name]: !filter.isOnline
                                   });
-                              }}
+                              }
+                          }
                           }
                     >
                         <label>
@@ -57,7 +60,7 @@ export const PlayersTable = (props) => {
                 </div>
                 <div className={classes.table__main}>
                     <TableHead currentSort={sortType} setSortType={setSortType}/>
-                    <Scrollbar style={{height: size.height - 64 - 99}}>
+                    <Scrollbar style={{height: size.height - 64 - 99 - 20}}>
                         <div className={classes.table__body}>
                             {players.length ? players.map(p =>
                                 <Player
@@ -121,6 +124,7 @@ export function useOnClickOutside(ref, handler) {
         [ref, handler]
     );
 }
+
 function useWindowSize() {
     const [windowSize, setWindowSize] = useState({
         width: 0,
@@ -133,6 +137,7 @@ function useWindowSize() {
                 height: window.innerHeight,
             });
         }
+
         window.addEventListener("resize", handleResize);
         handleResize();
         return () => window.removeEventListener("resize", handleResize);

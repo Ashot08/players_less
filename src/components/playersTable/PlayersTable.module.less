@@ -92,9 +92,15 @@
 @media(max-width: 600px) {
     .header{
         form{
-            grid-template-columns: auto auto;
+            display: flex;
+            flex-wrap: wrap;
             padding: 10px;
         }
         padding: 0;
+    }
+    .table{
+        &__head{
+            overflow-x: scroll;
+        }
     }
 }
